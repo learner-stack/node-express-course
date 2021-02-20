@@ -1,19 +1,19 @@
 const express = require('express');
 const app = express();
-
+//object form
 const userData = [
-                  {name:'RM'},
-                  {name:'Jin' }
+                  {id:1,name:'RM'},
+                  {id:2,name:'Jin'}
                 ]
 
-app.get('/users',function(req,res){
+app.get('/users/:id',function(req,res){
+    console.log(req.params.id);
     res.json({
-        success: true,
-        message: 'succesffuly got the details!',
-        users: userData
+        users: req.params.id
     })
-    //const objData = JSON.parse(userData);
-    //console.log(objData);
+    //json form converting
+    const objData = JSON.stringify(userData);
+    console.log(objData);
 })
 
 app.listen(8080,function(){
