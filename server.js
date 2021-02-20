@@ -11,11 +11,15 @@ app.get('/users/:id',function(req,res){
     res.json({
         users: req.params.id
     })
-    //json form converting
+    console.log(req.params.id.name);
+    
+})
+app.get('/users',function(req,res){
+    //object to json converting
     const objData = JSON.stringify(userData);
     console.log(objData);
+    res.send(objData)
 })
-
 app.listen(8080,function(){
     console.log("server is running");
 });
